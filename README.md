@@ -21,17 +21,17 @@ public as often as necessary.
 ## What does `getBlogAsStaticHTML.sh` do?
 
 1. It uses `wget` to scrape the contents of the WordPres version of a 
-   given site, and convertes it to statick HTML.
+   given site, and convertes it to static HTML.
 2. It rewrites file names for CSS & JS files scraped by `wget` so 
    that the GET variables appended by WordPress are removed
-3. It rewrites the HTML files to using transforms specified in 
+3. It rewrites the HTML files to using transforms defined in 
    `fixHTML.sh`
 4. Moves the scraped and cleaned HTML files to the public location 
    for the static site.
 5. If you provide an extra CSS file (via `$extraCSS`) and a main 
-   (via `$mainCSS`) file the extra CSS file will be concatinated 
+   (via `$mainCSS`) file, the extra CSS file will be concatinated 
    with the main CSS to ensure any missing styles are present on 
-   the static verson of the iste.
+   the static verson of the site.
 6. If (as is currently the case) step three didn't properly recurse 
    through the sub-directories and rewrite the HTML, run 
    `fixAllBlogHTML.sh` on the production directory to ensure that 
