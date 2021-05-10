@@ -1,6 +1,17 @@
 #!/bin/sh
 
 # =========================================================
+# This file does the all actual work of scraping and transforming
+# a WordPress blog (or any other dynamic site) into static HTML
+#
+# It can be run manually but is intended to be run via a cron job.
+#
+# It does NOT handle moving the static site to another server.
+# For moving the whole site, I recommend using rsync.
+# =========================================================
+
+
+# =========================================================
 # START: Setting up variables
 
 # -----------------------------------------------
@@ -75,14 +86,6 @@ extraCSS=$blogDir'/extra.css'
 # -----------------------------------------------
 
 mainCSS=$themeAssetDir'/main.css'
-
-
-# -----------------------------------------------
-# @var $blogDirData - Local path to where the output
-#		of wget will be stored
-# -----------------------------------------------
-
-cssDir=$blogDir'/myblog.example.com/css/'
 
 # -----------------------------------------------
 # @var $blogScrapeLog - Path to log file for this script
@@ -531,17 +534,8 @@ cd $blogDirData
 # - - - - - - - - - - - - - - - - - - - - - - - -
 # Cleanup file names
 
-
-
-
-
 report 'Rewrite file names in wp-content.'
 cleanFileName ./wp-content
-# cleanFileName ./wp-includes
-
-# if [ ! -d $cssDir ]
-# then	mkdir $cssDir;
-# fi
 
 report 'Fix HTML.'
 fixHTML $blogDirData

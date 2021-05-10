@@ -1,5 +1,13 @@
 #!/bin/sh
 
+# =========================================================
+# This file is used for rerunning the recursive transforms needed to
+# make the static version of the website work as well as the dynamic
+# WordPress version.
+#
+# It should not be necessary to run this script directly.
+# =========================================================
+
 blogDir="$1"
 
 

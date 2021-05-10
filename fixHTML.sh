@@ -5,6 +5,9 @@
 # version of the WordPress site looking and behaving like the
 # dynamic source version of the WordPress site.
 #
+# It should not be run directly. It is intended to be used like a
+# function by other scrips
+#
 # It does NOT handle any of the scraping it merely transforms
 # what is already on disc (after the scraping has completed).
 # ===============================================
